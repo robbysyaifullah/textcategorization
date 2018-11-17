@@ -1,9 +1,7 @@
 from flask import Flask, render_template, request
+from aduan import cek_aduan
 
 app = Flask(__name__)
-
-def CekAduan(text):
-    return True
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -11,7 +9,7 @@ def index():
         text = request.form['aduan']
         aduan = []
         aduan.append(text)
-        aduan.append('ya' if CekAduan(text) else 'bukan')
+        aduan.append('ya' if cek_aduan(text) else 'bukan')
         aduans = []
         aduans.append(aduan)
         return render_template('index.html', aduans = aduans)
