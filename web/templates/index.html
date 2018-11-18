@@ -53,6 +53,26 @@
                 {% endfor %}
               </table>
             </div>
+            {% if postags %}
+            <div id="pos-tag">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Verb</th>
+                    <th>Noun</th>
+                    <th>Angka</th>
+                  </tr>
+                </thead>
+                {% for postag in postags%}
+                  <tr>
+                    <td>{{ postag[0] }}</td>
+                    <td>{{ postag[1] }}</td>
+                    <td>{{ postag[2] }}</td>
+                  </tr>
+                {% endfor %}
+              </table>
+            </div>
+            {% endif %}
           {% endif %}
         </div>
         <div class="col-md-2"></div>
